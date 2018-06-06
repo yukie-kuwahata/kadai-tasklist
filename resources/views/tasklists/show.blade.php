@@ -3,9 +3,6 @@
 @section('content')
 
     <h1>id = {{ $tasklist->id }} のタスク詳細ページ</h1>
-
-    <!--<p>ステータス: {{ $tasklist->status }}</p>-->
-    <!--<p>タスク: {{ $tasklist->content }}</p>-->
     
     <table class="table table-bordered">
         <tr>
