@@ -89,7 +89,7 @@ class TasklistsController extends Controller
         return view('tasklists.show', ['tasklist' => $tasklist,]);
     }
         
-        else {return rediret ('/');}
+        else {return redirect ('/');}
     }
 
     /**
