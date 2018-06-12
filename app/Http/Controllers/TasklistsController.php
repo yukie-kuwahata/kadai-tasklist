@@ -80,10 +80,16 @@ class TasklistsController extends Controller
      public function show($id)
     {
         $tasklist = Tasklist::find($id);
-
-        return view('tasklists.show', [
-            'tasklist' => $tasklist,
-        ]);
+        
+        if ($tasklist == null){ 
+            return redirect ('/');}
+        
+        elseif (\Auth::user()->id === $tasklist->user_id) {
+    
+        return view('tasklists.show', ['tasklist' => $tasklist,]);
+    }
+        
+        else {return rediret ('/');}
     }
 
     /**
@@ -94,11 +100,19 @@ class TasklistsController extends Controller
      */
    public function edit($id)
     {
-        $tasklist = Tasklist::find($id);
+         $tasklist = Tasklist::find($id);
+        
+        if ($tasklist == null){ 
+            return redirect ('/');}
+       
+        elseif (\Auth::user()->id === $tasklist->user_id) {
 
-        return view('tasklists.edit', [
-            'tasklist' => $tasklist,
-        ]);
+        return view('tasklists.edit', ['tasklist' => $tasklist,]);
+            
+            
+            
+        }else {return rediret ('/');}
+
     }
 
     /**
