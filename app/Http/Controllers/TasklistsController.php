@@ -111,7 +111,7 @@ class TasklistsController extends Controller
             
             
             
-        }else {return rediret ('/');}
+        }else {return redirect ('/');}
 
     }
 
